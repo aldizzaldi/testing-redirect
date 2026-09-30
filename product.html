@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Produk Test</title>
+<script src="redirect.js"></script>
+</head>
+<body style="font-family:system-ui,sans-serif;max-width:560px;margin:0 auto;padding:16px">
+<h1>Halaman Produk</h1>
+<p>Query: <code id="q"></code></p>
+<p>Dipakai untuk cek apakah path + query ikut terbawa ke app.</p>
+<p><a href="index.html">← Home</a></p>
+<script>document.getElementById('q').textContent = location.search || '(kosong)';</script>
+</body>
+</html>
