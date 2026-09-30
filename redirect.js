@@ -1,6 +1,6 @@
 // Sama dengan tag GTM. Nanti di production cukup pindahkan ke GTM.
 (function () {
-  var PACKAGE = 'com.exmaple.skateboard';
+  var PACKAGE = 'com.example.skateboard';
   var FLAG = 'no_app_redirect';
   var KEY = 'ikea_app_redirect_tried';
 
