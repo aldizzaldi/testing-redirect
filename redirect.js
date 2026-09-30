@@ -1,23 +1,18 @@
- (function () {
-    console.log('[IKEA UAT APP TEST] GTM tag loaded');
+(function () {
+  if (!/Android/i.test(navigator.userAgent)) return;
 
-    if (!/Android/i.test(navigator.userAgent)) {
-      console.log('[IKEA UAT APP TEST] Not Android');
-      return;
-    }
+  var PACKAGE = 'com.example.skateboard';
+  var FLAG = 'no_app_redirect';
+  var url = new URL(window.location.href);
 
-    var currentUrl = window.location.href;
-    var pageUrl = new URL(currentUrl);
+  // Sudah balik dari fallback -> jangan redirect lagi
+  if (url.searchParams.get(FLAG) === '1') return;
 
-    var targetUrl = currentUrl;
-    var intentUrl =
-      targetUrl.replace(/^https:\/\//, 'intent://') +
-      '#Intent;' +
-      'scheme=https;' +
-      'package=com.example.skateboard;' +
-      'S.browser_fallback_url=' +
-      encodeURIComponent(targetUrl) +
-      ';end';
+  var fallback = new URL(url.toString());
+  fallback.searchParams.set(FLAG, '1');
 
-    window.location.href = intentUrl;
-  })();
+  window.location.href =
+    url.toString().replace(/^https:\/\//, 'intent://') +
+    '#Intent;scheme=https;package=' + PACKAGE +
+    ';S.browser_fallback_url=' + encodeURIComponent(fallback.toString()) + ';end';
+})();
