@@ -18,7 +18,7 @@
   var fallback = new URL(url.toString());
   fallback.searchParams.set(FLAG, '1');
 
-  location.replace(
+  location.href(
     url.toString().replace(/^https:\/\//, 'intent://') +
     '#Intent;scheme=https;package=' + PACKAGE +
     ';S.browser_fallback_url=' + encodeURIComponent(fallback.toString()) + ';end'
