@@ -1,7 +1,7 @@
 (function () {
   if (!/Android/i.test(navigator.userAgent)) return;
 
-  var PACKAGE = 'con.example.skateboard';
+  var PACKAGE = 'com.example.skateboard';
   var FLAG = 'no_app_redirect';
   var REDIRECT_KEY = 'ikea_app_redirect';
   var TTL = 10 * 60 * 1000;
